@@ -135,6 +135,10 @@ class Entreprise
     }
 
     public function __toString() {
-        return $this->raisonSociale . " ( " . $this->cp . " " . $this->ville . " ) ";
+        return $this->raisonSociale;
+    }
+
+    public function getAdresseComplete() : ?string {
+        return $this->adresse. " " . $this->cp. " " . $this->ville;
     }
 }
