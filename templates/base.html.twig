@@ -14,6 +14,12 @@
 </head>
 
 <body>
+    <nav>
+        <ul style="text-decoration: none; list-style: none;">
+            <li><a href="{{ path('app_entreprise') }}">Liste des entreprises</a></li>
+            <li><a href="{{ path('app_employe') }}">Liste des employés</a></li>
+        </ul>
+    </nav>
     {% block body %}{% endblock %}
 </body>
 
