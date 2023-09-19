@@ -22,34 +22,41 @@ class EmployeType extends AbstractType
                     'class' => 'form-control'
                 ]
             ])
+
             ->add('prenom', TextType::class, [
                 'attr' => [
                     'class' => 'form-control'
                 ]
             ])
+
             ->add('dateNaissance', DateType::class, [
                 'widget' => 'single_text',
                 'attr' => [
                     'class' => 'form-control'
                 ]
                 ])
+
             ->add('dateEmbauche', DateType::class, [
                 'widget' => 'single_text',
                 'attr' => [
                     'class' => 'form-control'
                 ]
                 ])
+
             ->add('ville', TextType::class, [
+                'required' => false,
                 'attr' => [
                     'class' => 'form-control'
                 ]
                 ])
+
             ->add('entreprise', EntityType::class, [
                 'class' => Entreprise::class,
                 'attr' => [
                     'class' => 'form-control'
                 ]
             ])
+            
             ->add('valider', SubmitType::class, [
                 'attr' => [
                     'class' => 'btn btn-success'

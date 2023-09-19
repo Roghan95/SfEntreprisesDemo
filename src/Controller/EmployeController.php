@@ -23,9 +23,11 @@ class EmployeController extends AbstractController
     }
 
     #[Route('/employe/new', name: 'new_employe')]
-    public function new(Request $request, EntityManagerInterface $entityMananger): Response {
-        
-        $employe = new Employe();
+    #[Route('/employe/{id}/edit', name: 'edit_employe')]
+    public function new_edit(Employe $employe = null, Request $request, EntityManagerInterface $entityMananger): Response {
+        if (!$employe) {
+            $employe = new Employe();
+        }
 
         $form = $this->createForm(EmployeType::class, $employe);
 
@@ -45,6 +47,15 @@ class EmployeController extends AbstractController
             'formAddEmploye' => $form
         ]);
     }
+    #[Route('/employe/{id}/delete', name: 'delete_employe')]
+    public function delete(Employe $employe, EntityManagerInterface $entityMananger) {
+        
+        $entityMananger->remove($employe); // prepare PDO
+        $entityMananger->flush(); // execute PDO
+
+        return $this->redirectToRoute('app_employe');
+    }
+
 
     #[Route('/employe/{id}', name: 'show_employe')]
     public function show(Employe $employe) : Response {
