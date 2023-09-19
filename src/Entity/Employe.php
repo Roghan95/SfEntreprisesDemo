@@ -98,20 +98,21 @@ class Employe
         return $this;
     }
 
-    public function __toString() {
-        return $this->prenom. " " . $this->nom;
-    }
-
+    
     public function getVille(): ?string
     {
         return $this->ville;
     }
-
+    
     public function setVille(?string $ville): static
     {
         $this->ville = $ville;
-
+        
         return $this;
+    }
+    
+    public function __toString() {
+        return $this->prenom. " " . $this->nom;
     }
 
     public function getAge() : ?string {
